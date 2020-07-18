@@ -1,0 +1,29 @@
+E, [2017-02-20T17:33:19.720880 #14125] ERROR -- Kitchen: ------Exception-------
+E, [2017-02-20T17:33:19.721173 #14125] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2017-02-20T17:33:19.721194 #14125] ERROR -- Kitchen: Message: Kitchen YAML file /Users/mlambrichs/dev/puppet/puppet-neo4j/spec/.kitchen.yml does not exist.
+E, [2017-02-20T17:33:19.721207 #14125] ERROR -- Kitchen: ----------------------
+E, [2017-02-20T17:33:19.721217 #14125] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-02-20T17:33:19.721226 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/loader/yaml.rb:71:in `read'
+E, [2017-02-20T17:33:19.721241 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/config.rb:152:in `data'
+E, [2017-02-20T17:33:19.721252 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/config.rb:131:in `suites'
+E, [2017-02-20T17:33:19.721262 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/config.rb:182:in `filter_instances'
+E, [2017-02-20T17:33:19.721271 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/config.rb:141:in `build_instances'
+E, [2017-02-20T17:33:19.721281 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/config.rb:117:in `instances'
+E, [2017-02-20T17:33:19.721290 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-02-20T17:33:19.721300 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-02-20T17:33:19.721309 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/command/list.rb:30:in `call'
+E, [2017-02-20T17:33:19.721319 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-02-20T17:33:19.721328 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/cli.rb:121:in `list'
+E, [2017-02-20T17:33:19.721340 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/thor-0.19.4/lib/thor/command.rb:27:in `run'
+E, [2017-02-20T17:33:19.721350 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/thor-0.19.4/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-02-20T17:33:19.721359 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-02-20T17:33:19.721368 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/thor-0.19.4/lib/thor.rb:369:in `dispatch'
+E, [2017-02-20T17:33:19.721378 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/thor-0.19.4/lib/thor/base.rb:444:in `start'
+E, [2017-02-20T17:33:19.721387 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-02-20T17:33:19.721396 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-02-20T17:33:19.721406 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/gems/test-kitchen-1.15.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-02-20T17:33:19.721415 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/bin/kitchen:22:in `load'
+E, [2017-02-20T17:33:19.721424 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/bin/kitchen:22:in `<main>'
+E, [2017-02-20T17:33:19.721434 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+E, [2017-02-20T17:33:19.721445 #14125] ERROR -- Kitchen: /Users/mlambrichs/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+E, [2017-02-20T17:33:19.721455 #14125] ERROR -- Kitchen: ----End Backtrace-----

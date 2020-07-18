@@ -1,0 +1,4823 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: neo4j
+  
+    &mdash; Documentation by YARD 0.9.8
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::neo4j";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (n)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">neo4j</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: neo4j</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>neo4j::params</dd>
+  </dl>
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ha_tx_push_strategy</span>
+      
+      
+        <span class='type'>(<tt>Enum['round_robin', 'fixed_descending', 'fixed_ascending']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_tx_push_strategy</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Push strategy of a transaction to a slave during commit.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>install_method</span>
+      
+      
+        <span class='type'>(<tt>Enum['package', 'source']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::install_method</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>install_prefix</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/\/([^/\0]+(\/)?)+/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::install_prefix</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Determines the NEO4J_HOME.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>jmx_enable</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::jmx_enable</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable remote JMX monitoring</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>manage_repo</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::manage_repo</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Add neo4j repository as custom repository.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_bolt_messages_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_bolt_messages_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about Bolt Protocol message processing.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_csv_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_csv_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Set to true to enable exporting metrics to CSV files.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_csv_interval</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/[1-9][0-9]*(ms|s|m)/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_csv_interval</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The reporting interval for the CSV files.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_csv_path</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/(\/)?([^/\0]+(\/)?)+/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_csv_path</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Directory path for csv output files.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_cypher_replanning_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_cypher_replanning_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about number of occurred replanning events.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The default enablement value for all the supported metrics.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_graphite_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_graphite_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Set to true to enable exporting metrics to Graphite.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_graphite_interval</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/[1-9][0-9]*(ms|s|m)/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_graphite_interval</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The reporting interval for Graphite.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_graphite_server</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/[^:]+:[1-9][0-9]{4}/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_graphite_server</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The hostname or IP address of the Graphite server.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_jvm_buffers_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_jvm_buffers_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the buffer pools.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_jvm_gc_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_jvm_gc_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the duration of garbage collections.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_jvm_memory_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_jvm_memory_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the memory usage.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_jvm_threads_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_jvm_threads_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the current number of threads running.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_causal_clustering_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_causal_clustering_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about Causal Clustering mode.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_checkpointing_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_checkpointing_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about Neo4j check pointing.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_cluster_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_cluster_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about HA cluster info.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_counts_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_counts_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about approximately how many entities are in the database.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The default enablement value for all Neo4j specific support metrics.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_logrotation_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_logrotation_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the Neo4j log rotation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_network_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_network_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the network usage.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_pagecache_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_pagecache_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about the Neo4j page cache.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_server_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_server_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about Server threading info.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_neo4j_tx_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_neo4j_tx_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Enable reporting metrics about transactions.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metrics_prefix</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::metrics_prefix</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>A common prefix for the reported metrics field names.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>release_deb</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::release_deb</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the debian release to use, only used when manage_repo is true.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>release_rpm</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::release_rpm</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the rpm release to use, only used when manage_repo is true.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_enable</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_enable</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Manage neo4j service.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_ensure</span>
+      
+      
+        <span class='type'>(<tt>Variant[Booolean, Enum['stopped', 'running']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_ensure</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Whether the service should be running.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the service to run.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_provider</span>
+      
+      
+        <span class='type'>(<tt>Enum['debian', 'redhat', 'systemd', 'init']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_provider</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The puppet service provider.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_ulimit</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_ulimit</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Maximum number of open file descriptors.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_shutdown_timeout</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::service_shutdown_timeout</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Number of seconds to wait for shutdown before killing the process.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tools_consistency_checker_check_graph</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::tools_consistency_checker_check_graph</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Perform checks between nodes, relationships, properties, types and tokens_</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tools_consistency_checker_check_indexes</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::tools_consistency_checker_check_indexes</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Perform checks on indexes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tools_consistency_checker_check_label_scan_store</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::tools_consistency_checker_check_label_scan_store</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Perform checks on the label scan store.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tools_consistency_checker_check_property_owners</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::tools_consistency_checker_check_property_owners</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Perform optional additional checking on property ownership.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>unsupported_dbms_security_ldap_authorization_connection_pooling</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::unsupported_dbms_security_ldap_authorization_connection_pooling</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Set to true if connection pooling should be used for authorization searches using the system account.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::user</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The user which runs the neo4j service.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>version</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::version</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The version of the neo4 package.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>data_prefix</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::data_prefix</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>edition</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::edition</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::group</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>default_file</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::default_file</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_active_database</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_active_database</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_allow_format_migration</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_allow_format_migration</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_checkpoint_interval_time</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_checkpoint_interval_time</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_checkpoint_interval_tx</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_checkpoint_interval_tx</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_checkpoint_iops_limit</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_checkpoint_iops_limit</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_certificates</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_certificates</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_data</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_data</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_import</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_import</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_lib</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_lib</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_logs</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_logs</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_metrics</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_metrics</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_plugins</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_plugins</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_directories_run</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_directories_run</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_ids_reuse_types_override</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_ids_reuse_types_override</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_index_sampling_background_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_index_sampling_background_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_index_sampling_buffer_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_index_sampling_buffer_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_index_sampling_sample_size_limit</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_index_sampling_sample_size_limit</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_index_sampling_update_percentage</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_index_sampling_update_percentage</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_index_searcher_cache_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_index_searcher_cache_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_debug_level</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_debug_level</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_debug_rotation_delay</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_debug_rotation_delay</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_debug_rotation_keep_number</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_debug_rotation_keep_number</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_debug_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_debug_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_gc_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_gc_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_gc_options</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_gc_options</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_gc_rotation_keep_number</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_gc_rotation_keep_number</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_gc_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_gc_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_http_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_http_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_http_rotation_keep_number</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_http_rotation_keep_number</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_http_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_http_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_security_level</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_security_level</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_memory_pagecache_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_memory_pagecache_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_memory_pagecache_swapper</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_memory_pagecache_swapper</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_mode</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_mode</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_read_only</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_read_only</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_record_format</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_record_format</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_relationship_grouping_threshold</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_relationship_grouping_threshold</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_rest_transaction_idle_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_rest_transaction_idle_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_shell_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_shell_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_shell_host</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_shell_host</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_shell_port</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_shell_port</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_shell_read_only</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_shell_read_only</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_shell_rmi_name</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_shell_rmi_name</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_allow_publisher_create_token</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_allow_publisher_create_token</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_tx_log_rotation_retention_policy</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_tx_log_rotation_retention_policy</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_tx_log_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_tx_log_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_udc_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_udc_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_unmanaged_extension_classes</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_unmanaged_extension_classes</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_backup_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_backup_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_backup_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_backup_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>browser_allow_outgoing_connections</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::browser_allow_outgoing_connections</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>browser_credential_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::browser_credential_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>browser_remote_content_hostname_whitelist</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::browser_remote_content_hostname_whitelist</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>browser_retain_connection_credentials</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::browser_retain_connection_credentials</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_array_block_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_array_block_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_catchup_batch_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_catchup_batch_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_cluster_allow_reads_on_followers</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_cluster_allow_reads_on_followers</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_cluster_routing_ttl</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_cluster_routing_ttl</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_cluster_topology_refresh</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_cluster_topology_refresh</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_disable_middleware_logging</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_disable_middleware_logging</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_discovery_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_discovery_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_discovery_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_discovery_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_expected_core_cluster_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_expected_core_cluster_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_global_session_tracker_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_global_session_tracker_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_id_alloc_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_id_alloc_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_initial_discovery_members</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_initial_discovery_members</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_join_catch_up_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_join_catch_up_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_label_token_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_label_token_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_label_token_name_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_label_token_name_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_last_applied_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_last_applied_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_leader_election_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_leader_election_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_log_shipping_max_lag</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_log_shipping_max_lag</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_neostore_block_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_neostore_block_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_node_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_node_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_node_labels_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_node_labels_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_outgoing_queue_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_outgoing_queue_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_property_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_property_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_property_key_token_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_property_key_token_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_property_key_token_name_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_property_key_token_name_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_pull_interval</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_pull_interval</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_log_implementation</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_log_implementation</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_log_prune_strategy</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_log_prune_strategy</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_log_pruning_frequency</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_log_pruning_frequency</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_log_reader_pool_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_log_reader_pool_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_log_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_log_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_membership_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_membership_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_messages_log_enable</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_messages_log_enable</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_term_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_term_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_raft_vote_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_raft_vote_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_read_replica_refresh_rate</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_read_replica_refresh_rate</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_read_replica_time_to_live</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_read_replica_time_to_live</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_relationship_group_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_relationship_group_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_relationship_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_relationship_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_relationship_type_token_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_relationship_type_token_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_relationship_type_token_name_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_relationship_type_token_name_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_replicated_lock_token_state_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_replicated_lock_token_state_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_schema_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_schema_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_state_machine_apply_max_batch_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_state_machine_apply_max_batch_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_state_machine_flush_window_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_state_machine_flush_window_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_string_block_id_allocation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_string_block_id_allocation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_transaction_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_transaction_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_transaction_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_transaction_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>causal_clustering_unknown_address_logging_throttle</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::causal_clustering_unknown_address_logging_throttle</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_default_language_version</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_default_language_version</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_forbid_exhaustive_shortestpath</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_forbid_exhaustive_shortestpath</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_hints_error</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_hints_error</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_min_replan_interval</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_min_replan_interval</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_planner</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_planner</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cypher_statistics_divergence_threshold</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::cypher_statistics_divergence_threshold</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_query_cache_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_query_cache_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_allow_csv_import_from_file_urls</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_allow_csv_import_from_file_urls</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_bolt_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_bolt_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_bolt_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_bolt_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_bolt_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_bolt_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_http_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_http_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_http_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_http_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_http_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_http_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_https_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_https_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_https_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_https_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connector_https_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connector_https_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connectors_default_advertised_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connectors_default_advertised_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_connectors_default_listen_address</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_connectors_default_listen_address</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_threads_worker_count</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_threads_worker_count</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_allow_init_cluster</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_allow_init_cluster</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_branched_data_copying_strategy</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_branched_data_copying_strategy</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_branched_data_policy</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_branched_data_policy</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_broadcast_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_broadcast_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_configuration_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_configuration_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_data_chunk_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_data_chunk_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_default_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_default_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_election_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_election_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_heartbeat_interval</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_heartbeat_interval</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_heartbeat_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_heartbeat_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_host_coordination</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_host_coordination</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_host_data</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_host_data</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_initial_hosts</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_initial_hosts</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_internal_role_switch_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_internal_role_switch_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_join_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_join_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_learn_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_learn_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_leave_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_leave_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_max_acceptors</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_max_acceptors</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_max_channels_per_slave</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_max_channels_per_slave</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_paxos_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_paxos_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_phase1_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_phase1_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_phase2_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_phase2_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_pull_batch_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_pull_batch_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_pull_interval</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_pull_interval</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_role_switch_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_role_switch_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_server_id</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_server_id</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_slave_lock_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_slave_lock_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_slave_only</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_slave_only</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_slave_read_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_slave_read_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ha_tx_push_factor</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::ha_tx_push_factor</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_query_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_query_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_query_parameter_logging_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_query_parameter_logging_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_query_rotation_keep_number</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_query_rotation_keep_number</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_query_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_query_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_query_threshold</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_query_threshold</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_security_rotation_delay</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_security_rotation_delay</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_security_rotation_keep_number</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_security_rotation_keep_number</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_logs_security_rotation_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_logs_security_rotation_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_log_successful_authentication</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_log_successful_authentication</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_transaction_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_transaction_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_ssl_keystore</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_ssl_keystore</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_ssl_keystore_password</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_ssl_keystore_password</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_ssl_truststore</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_ssl_truststore</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_ssl_truststore_password</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_ssl_truststore_password</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_auth_cache_max_capacity</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_auth_cache_max_capacity</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_auth_cache_ttl</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_auth_cache_ttl</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_auth_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_auth_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_auth_provider</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_auth_provider</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ha_status_auth_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ha_status_auth_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_http_authorization_classes</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_http_authorization_classes</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authentication_cache_enabled</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authentication_cache_enabled</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authentication_mechanism</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authentication_mechanism</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authentication_user_dn_template</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authentication_user_dn_template</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_group_membership_attributes</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_group_membership_attributes</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_group_to_role_mapping</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_group_to_role_mapping</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_system_password</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_system_password</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_system_username</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_system_username</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_use_system_account</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_use_system_account</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_user_search_base</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_user_search_base</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_authorization_user_search_filter</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_authorization_user_search_filter</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_connection_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_connection_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_host</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_host</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_read_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_read_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_referral</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_referral</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_ldap_use_starttls</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_ldap_use_starttls</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_procedures_default_allowed</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_procedures_default_allowed</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_security_procedures_roles</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_security_procedures_roles</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_memory_heap_initial_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_memory_heap_initial_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_memory_heap_max_size</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_memory_heap_max_size</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_commit_memory_to_process</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_commit_memory_to_process</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_disable_explicit_gc</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_disable_explicit_gc</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_ephemeral_dh_keysize</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_ephemeral_dh_keysize</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_hashcode</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_hashcode</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_jmxremote_access_file</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_jmxremote_access_file</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_jmxremote_authenticate</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_jmxremote_authenticate</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_jmxremote_password_file</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_jmxremote_password_file</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_jmxremote_port</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_jmxremote_port</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_jmxremote_ssl</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_jmxremote_ssl</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_omit_stacktrace_in_fast_throw</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_omit_stacktrace_in_fast_throw</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_rmi_server_hostname</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_rmi_server_hostname</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_trust_final_non_static_fields</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_trust_final_non_static_fields</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_unlock_experimental_vm_options</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_unlock_experimental_vm_options</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_unsupported_dbms_udc_source</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_unsupported_dbms_udc_source</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_jvm_additional_use_g1gc</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_jvm_additional_use_g1gc</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dbms_windows_service_name</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::neo4j::params::dbms_windows_service_name</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>3.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+1128
+1129
+1130
+1131
+1132
+1133
+1134
+1135
+1136
+1137
+1138
+1139
+1140
+1141
+1142
+1143
+1144
+1145
+1146
+1147
+1148
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159
+1160
+1161
+1162
+1163
+1164
+1165
+1166
+1167
+1168
+1169
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177
+1178
+1179
+1180
+1181
+1182
+1183
+1184
+1185
+1186
+1187
+1188
+1189
+1190
+1191
+1192
+1193
+1194
+1195</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 613</span>
+
+class neo4j (
+  $data_prefix                                                       = $::neo4j::params::data_prefix,
+  $edition                                                           = $::neo4j::params::edition,
+  $group                                                             = $::neo4j::params::group,
+  $install_prefix                                                    = $::neo4j::params::install_prefix,
+  $install_method                                                    = $::neo4j::params::install_method,
+  $jmx_enable                                                        = $::neo4j::params::jmx_enable,
+  $manage_repo                                                       = $::neo4j::params::manage_repo,
+  $release_deb                                                       = $::neo4j::params::release_deb,
+  $release_rpm                                                       = $::neo4j::params::release_rpm,
+  $service_enable                                                    = $::neo4j::params::service_enable,
+  $service_ensure                                                    = $::neo4j::params::service_ensure,
+  $service_name                                                      = $::neo4j::params::service_name,
+  $service_provider                                                  = $::neo4j::params::service_provider,
+  $user                                                              = $::neo4j::params::user,
+  $version                                                           = $::neo4j::params::version,
+
+  ### config default settings
+  $default_file                                                      = $::neo4j::params::default_file,
+  $service_shutdown_timeout                                          = $::neo4j::params::service_shutdown_timeout,
+  $service_ulimit                                                    = $::neo4j::params::service_ulimit,
+
+  ### config general variables
+  $dbms_active_database                                              = $::neo4j::params::dbms_active_database,
+  $dbms_allow_format_migration                                       = $::neo4j::params::dbms_allow_format_migration,
+  $dbms_checkpoint_interval_time                                     = $::neo4j::params::dbms_checkpoint_interval_time,
+  $dbms_checkpoint_interval_tx                                       = $::neo4j::params::dbms_checkpoint_interval_tx,
+  $dbms_checkpoint_iops_limit                                        = $::neo4j::params::dbms_checkpoint_iops_limit,
+  $dbms_directories_certificates                                     = $::neo4j::params::dbms_directories_certificates,
+  $dbms_directories_data                                             = $::neo4j::params::dbms_directories_data,
+  $dbms_directories_import                                           = $::neo4j::params::dbms_directories_import,
+  $dbms_directories_lib                                              = $::neo4j::params::dbms_directories_lib,
+  $dbms_directories_logs                                             = $::neo4j::params::dbms_directories_logs,
+  $dbms_directories_metrics                                          = $::neo4j::params::dbms_directories_metrics,
+  $dbms_directories_plugins                                          = $::neo4j::params::dbms_directories_plugins,
+  $dbms_directories_run                                              = $::neo4j::params::dbms_directories_run,
+  $dbms_ids_reuse_types_override                                     = $::neo4j::params::dbms_ids_reuse_types_override,
+  $dbms_index_sampling_background_enabled                            = $::neo4j::params::dbms_index_sampling_background_enabled,
+  $dbms_index_sampling_buffer_size                                   = $::neo4j::params::dbms_index_sampling_buffer_size,
+  $dbms_index_sampling_sample_size_limit                             = $::neo4j::params::dbms_index_sampling_sample_size_limit,
+  $dbms_index_sampling_update_percentage                             = $::neo4j::params::dbms_index_sampling_update_percentage,
+  $dbms_index_searcher_cache_size                                    = $::neo4j::params::dbms_index_searcher_cache_size,
+  $dbms_logs_debug_level                                             = $::neo4j::params::dbms_logs_debug_level,
+  $dbms_logs_debug_rotation_delay                                    = $::neo4j::params::dbms_logs_debug_rotation_delay,
+  $dbms_logs_debug_rotation_keep_number                              = $::neo4j::params::dbms_logs_debug_rotation_keep_number,
+  $dbms_logs_debug_rotation_size                                     = $::neo4j::params::dbms_logs_debug_rotation_size,
+  $dbms_logs_gc_enabled                                              = $::neo4j::params::dbms_logs_gc_enabled,
+  $dbms_logs_gc_options                                              = $::neo4j::params::dbms_logs_gc_options,
+  $dbms_logs_gc_rotation_keep_number                                 = $::neo4j::params::dbms_logs_gc_rotation_keep_number,
+  $dbms_logs_gc_rotation_size                                        = $::neo4j::params::dbms_logs_gc_rotation_size,
+  $dbms_logs_http_enabled                                            = $::neo4j::params::dbms_logs_http_enabled,
+  $dbms_logs_http_rotation_keep_number                               = $::neo4j::params::dbms_logs_http_rotation_keep_number,
+  $dbms_logs_http_rotation_size                                      = $::neo4j::params::dbms_logs_http_rotation_size,
+  $dbms_logs_security_level                                          = $::neo4j::params::dbms_logs_security_level,
+  $dbms_memory_pagecache_size                                        = $::neo4j::params::dbms_memory_pagecache_size,
+  $dbms_memory_pagecache_swapper                                     = $::neo4j::params::dbms_memory_pagecache_swapper,
+  $dbms_mode                                                         = $::neo4j::params::dbms_mode,
+  $dbms_read_only                                                    = $::neo4j::params::dbms_read_only,
+  $dbms_record_format                                                = $::neo4j::params::dbms_record_format,
+  $dbms_relationship_grouping_threshold                              = $::neo4j::params::dbms_relationship_grouping_threshold,
+  $dbms_rest_transaction_idle_timeout                                = $::neo4j::params::dbms_rest_transaction_idle_timeout,
+  $dbms_shell_enabled                                                = $::neo4j::params::dbms_shell_enabled,
+  $dbms_shell_host                                                   = $::neo4j::params::dbms_shell_host,
+  $dbms_shell_port                                                   = $::neo4j::params::dbms_shell_port,
+  $dbms_shell_read_only                                              = $::neo4j::params::dbms_shell_read_only,
+  $dbms_shell_rmi_name                                               = $::neo4j::params::dbms_shell_rmi_name,
+  $dbms_security_allow_publisher_create_token                        = $::neo4j::params::dbms_security_allow_publisher_create_token,
+  $dbms_tx_log_rotation_retention_policy                             = $::neo4j::params::dbms_tx_log_rotation_retention_policy,
+  $dbms_tx_log_rotation_size                                         = $::neo4j::params::dbms_tx_log_rotation_size,
+  $dbms_udc_enabled                                                  = $::neo4j::params::dbms_udc_enabled,
+  $dbms_unmanaged_extension_classes                                  = $::neo4j::params::dbms_unmanaged_extension_classes,
+  $tools_consistency_checker_check_graph                             = $::neo4j::params::tools_consistency_checker_check_graph,
+  $tools_consistency_checker_check_indexes                           = $::neo4j::params::tools_consistency_checker_check_indexes,
+  $tools_consistency_checker_check_label_scan_store                  = $::neo4j::params::tools_consistency_checker_check_label_scan_store,
+  $tools_consistency_checker_check_property_owners                   = $::neo4j::params::tools_consistency_checker_check_property_owners,
+
+  ### config backup variables
+  $dbms_backup_address                                               = $::neo4j::params::dbms_backup_address,
+  $dbms_backup_enabled                                               = $::neo4j::params::dbms_backup_enabled,
+
+  ### config browser variables
+  $browser_allow_outgoing_connections                                = $::neo4j::params::browser_allow_outgoing_connections,
+  $browser_credential_timeout                                        = $::neo4j::params::browser_credential_timeout,
+  $browser_remote_content_hostname_whitelist                         = $::neo4j::params::browser_remote_content_hostname_whitelist,
+  $browser_retain_connection_credentials                             = $::neo4j::params::browser_retain_connection_credentials,
+
+  ### config clustering causal variables
+  $causal_clustering_array_block_id_allocation_size                  = $::neo4j::params::causal_clustering_array_block_id_allocation_size,
+  $causal_clustering_catchup_batch_size                              = $::neo4j::params::causal_clustering_catchup_batch_size,
+  $causal_clustering_cluster_allow_reads_on_followers                = $::neo4j::params::causal_clustering_cluster_allow_reads_on_followers,
+  $causal_clustering_cluster_routing_ttl                             = $::neo4j::params::causal_clustering_cluster_routing_ttl,
+  $causal_clustering_cluster_topology_refresh                        = $::neo4j::params::causal_clustering_cluster_topology_refresh,
+  $causal_clustering_disable_middleware_logging                      = $::neo4j::params::causal_clustering_disable_middleware_logging,
+  $causal_clustering_discovery_advertised_address                    = $::neo4j::params::causal_clustering_discovery_advertised_address,
+  $causal_clustering_discovery_listen_address                        = $::neo4j::params::causal_clustering_discovery_listen_address,
+  $causal_clustering_expected_core_cluster_size                      = $::neo4j::params::causal_clustering_expected_core_cluster_size,
+  $causal_clustering_global_session_tracker_state_size               = $::neo4j::params::causal_clustering_global_session_tracker_state_size,
+  $causal_clustering_id_alloc_state_size                             = $::neo4j::params::causal_clustering_id_alloc_state_size,
+  $causal_clustering_initial_discovery_members                       = $::neo4j::params::causal_clustering_initial_discovery_members,
+  $causal_clustering_join_catch_up_timeout                           = $::neo4j::params::causal_clustering_join_catch_up_timeout,
+  $causal_clustering_label_token_id_allocation_size                  = $::neo4j::params::causal_clustering_label_token_id_allocation_size,
+  $causal_clustering_label_token_name_id_allocation_size             = $::neo4j::params::causal_clustering_label_token_name_id_allocation_size,
+  $causal_clustering_last_applied_state_size                         = $::neo4j::params::causal_clustering_last_applied_state_size,
+  $causal_clustering_leader_election_timeout                         = $::neo4j::params::causal_clustering_leader_election_timeout,
+  $causal_clustering_log_shipping_max_lag                            = $::neo4j::params::causal_clustering_log_shipping_max_lag,
+  $causal_clustering_neostore_block_id_allocation_size               = $::neo4j::params::causal_clustering_neostore_block_id_allocation_size,
+  $causal_clustering_node_id_allocation_size                         = $::neo4j::params::causal_clustering_node_id_allocation_size,
+  $causal_clustering_node_labels_id_allocation_size                  = $::neo4j::params::causal_clustering_node_labels_id_allocation_size,
+  $causal_clustering_outgoing_queue_size                             = $::neo4j::params::causal_clustering_outgoing_queue_size,
+  $causal_clustering_property_id_allocation_size                     = $::neo4j::params::causal_clustering_property_id_allocation_size,
+  $causal_clustering_property_key_token_id_allocation_size           = $::neo4j::params::causal_clustering_property_key_token_id_allocation_size,
+  $causal_clustering_property_key_token_name_id_allocation_size      = $::neo4j::params::causal_clustering_property_key_token_name_id_allocation_size,
+  $causal_clustering_pull_interval                                   = $::neo4j::params::causal_clustering_pull_interval,
+  $causal_clustering_raft_advertised_address                         = $::neo4j::params::causal_clustering_raft_advertised_address,
+  $causal_clustering_raft_listen_address                             = $::neo4j::params::causal_clustering_raft_listen_address,
+  $causal_clustering_raft_log_implementation                         = $::neo4j::params::causal_clustering_raft_log_implementation,
+  $causal_clustering_raft_log_prune_strategy                         = $::neo4j::params::causal_clustering_raft_log_prune_strategy,
+  $causal_clustering_raft_log_pruning_frequency                      = $::neo4j::params::causal_clustering_raft_log_pruning_frequency,
+  $causal_clustering_raft_log_reader_pool_size                       = $::neo4j::params::causal_clustering_raft_log_reader_pool_size,
+  $causal_clustering_raft_log_rotation_size                          = $::neo4j::params::causal_clustering_raft_log_rotation_size,
+  $causal_clustering_raft_membership_state_size                      = $::neo4j::params::causal_clustering_raft_membership_state_size,
+  $causal_clustering_raft_messages_log_enable                        = $::neo4j::params::causal_clustering_raft_messages_log_enable,
+  $causal_clustering_raft_term_state_size                            = $::neo4j::params::causal_clustering_raft_term_state_size,
+  $causal_clustering_raft_vote_state_size                            = $::neo4j::params::causal_clustering_raft_vote_state_size,
+  $causal_clustering_read_replica_refresh_rate                       = $::neo4j::params::causal_clustering_read_replica_refresh_rate,
+  $causal_clustering_read_replica_time_to_live                       = $::neo4j::params::causal_clustering_read_replica_time_to_live,
+  $causal_clustering_relationship_group_id_allocation_size           = $::neo4j::params::causal_clustering_relationship_group_id_allocation_size,
+  $causal_clustering_relationship_id_allocation_size                 = $::neo4j::params::causal_clustering_relationship_id_allocation_size,
+  $causal_clustering_relationship_type_token_id_allocation_size      = $::neo4j::params::causal_clustering_relationship_type_token_id_allocation_size,
+  $causal_clustering_relationship_type_token_name_id_allocation_size = $::neo4j::params::causal_clustering_relationship_type_token_name_id_allocation_size,
+  $causal_clustering_replicated_lock_token_state_size                = $::neo4j::params::causal_clustering_replicated_lock_token_state_size,
+  $causal_clustering_schema_id_allocation_size                       = $::neo4j::params::causal_clustering_schema_id_allocation_size,
+  $causal_clustering_state_machine_apply_max_batch_size              = $::neo4j::params::causal_clustering_state_machine_apply_max_batch_size,
+  $causal_clustering_state_machine_flush_window_size                 = $::neo4j::params::causal_clustering_state_machine_flush_window_size,
+  $causal_clustering_string_block_id_allocation_size                 = $::neo4j::params::causal_clustering_string_block_id_allocation_size,
+  $causal_clustering_transaction_advertised_address                  = $::neo4j::params::causal_clustering_transaction_advertised_address,
+  $causal_clustering_transaction_listen_address                      = $::neo4j::params::causal_clustering_transaction_listen_address,
+  $causal_clustering_unknown_address_logging_throttle                = $::neo4j::params::causal_clustering_unknown_address_logging_throttle,
+
+  ### config cypher variables
+  $cypher_default_language_version                                   = $::neo4j::params::cypher_default_language_version,
+  $cypher_forbid_exhaustive_shortestpath                             = $::neo4j::params::cypher_forbid_exhaustive_shortestpath,
+  $cypher_hints_error                                                = $::neo4j::params::cypher_hints_error,
+  $cypher_min_replan_interval                                        = $::neo4j::params::cypher_min_replan_interval,
+  $cypher_planner                                                    = $::neo4j::params::cypher_planner,
+  $cypher_statistics_divergence_threshold                            = $::neo4j::params::cypher_statistics_divergence_threshold,
+  $dbms_query_cache_size                                             = $::neo4j::params::dbms_query_cache_size,
+  $dbms_security_allow_csv_import_from_file_urls                     = $::neo4j::params::dbms_security_allow_csv_import_from_file_urls,
+
+  ### config connectors variables
+  $dbms_connector_bolt_advertised_address                            = $::neo4j::params::dbms_connector_bolt_advertised_address,
+  $dbms_connector_bolt_enabled                                       = $::neo4j::params::dbms_connector_bolt_enabled,
+  $dbms_connector_bolt_listen_address                                = $::neo4j::params::dbms_connector_bolt_listen_address,
+  $dbms_connector_http_advertised_address                            = $::neo4j::params::dbms_connector_http_advertised_address,
+  $dbms_connector_http_enabled                                       = $::neo4j::params::dbms_connector_http_enabled,
+  $dbms_connector_http_listen_address                                = $::neo4j::params::dbms_connector_http_listen_address,
+  $dbms_connector_https_advertised_address                           = $::neo4j::params::dbms_connector_https_advertised_address,
+  $dbms_connector_https_enabled                                      = $::neo4j::params::dbms_connector_https_enabled,
+  $dbms_connector_https_listen_address                               = $::neo4j::params::dbms_connector_https_listen_address,
+  $dbms_connectors_default_advertised_address                        = $::neo4j::params::dbms_connectors_default_advertised_address,
+  $dbms_connectors_default_listen_address                            = $::neo4j::params::dbms_connectors_default_listen_address,
+  $dbms_threads_worker_count                                         = $::neo4j::params::dbms_threads_worker_count,
+
+  ### config clustering HA variables
+  $ha_allow_init_cluster                                             = $::neo4j::params::ha_allow_init_cluster,
+  $ha_branched_data_copying_strategy                                 = $::neo4j::params::ha_branched_data_copying_strategy,
+  $ha_branched_data_policy                                           = $::neo4j::params::ha_branched_data_policy,
+  $ha_broadcast_timeout                                              = $::neo4j::params::ha_broadcast_timeout,
+  $ha_configuration_timeout                                          = $::neo4j::params::ha_configuration_timeout,
+  $ha_data_chunk_size                                                = $::neo4j::params::ha_data_chunk_size,
+  $ha_default_timeout                                                = $::neo4j::params::ha_default_timeout,
+  $ha_election_timeout                                               = $::neo4j::params::ha_election_timeout,
+  $ha_heartbeat_interval                                             = $::neo4j::params::ha_heartbeat_interval,
+  $ha_heartbeat_timeout                                              = $::neo4j::params::ha_heartbeat_timeout,
+  $ha_host_coordination                                              = $::neo4j::params::ha_host_coordination,
+  $ha_host_data                                                      = $::neo4j::params::ha_host_data,
+  $ha_initial_hosts                                                  = $::neo4j::params::ha_initial_hosts,
+  $ha_internal_role_switch_timeout                                   = $::neo4j::params::ha_internal_role_switch_timeout,
+  $ha_join_timeout                                                   = $::neo4j::params::ha_join_timeout,
+  $ha_learn_timeout                                                  = $::neo4j::params::ha_learn_timeout,
+  $ha_leave_timeout                                                  = $::neo4j::params::ha_leave_timeout,
+  $ha_max_acceptors                                                  = $::neo4j::params::ha_max_acceptors,
+  $ha_max_channels_per_slave                                         = $::neo4j::params::ha_max_channels_per_slave,
+  $ha_paxos_timeout                                                  = $::neo4j::params::ha_paxos_timeout,
+  $ha_phase1_timeout                                                 = $::neo4j::params::ha_phase1_timeout,
+  $ha_phase2_timeout                                                 = $::neo4j::params::ha_phase2_timeout,
+  $ha_pull_batch_size                                                = $::neo4j::params::ha_pull_batch_size,
+  $ha_pull_interval                                                  = $::neo4j::params::ha_pull_interval,
+  $ha_role_switch_timeout                                            = $::neo4j::params::ha_role_switch_timeout,
+  $ha_server_id                                                      = $::neo4j::params::ha_server_id,
+  $ha_slave_lock_timeout                                             = $::neo4j::params::ha_slave_lock_timeout,
+  $ha_slave_only                                                     = $::neo4j::params::ha_slave_only,
+  $ha_slave_read_timeout                                             = $::neo4j::params::ha_slave_read_timeout,
+  $ha_tx_push_factor                                                 = $::neo4j::params::ha_tx_push_factor,
+  $ha_tx_push_strategy                                               = $::neo4j::params::ha_tx_push_strategy,
+
+  ### config monitoring logging variables
+  $dbms_logs_query_enabled                                           = $::neo4j::params::dbms_logs_query_enabled,
+  $dbms_logs_query_parameter_logging_enabled                         = $::neo4j::params::dbms_logs_query_parameter_logging_enabled,
+  $dbms_logs_query_rotation_keep_number                              = $::neo4j::params::dbms_logs_query_rotation_keep_number,
+  $dbms_logs_query_rotation_size                                     = $::neo4j::params::dbms_logs_query_rotation_size,
+  $dbms_logs_query_threshold                                         = $::neo4j::params::dbms_logs_query_threshold,
+  $dbms_logs_security_rotation_delay                                 = $::neo4j::params::dbms_logs_security_rotation_delay,
+  $dbms_logs_security_rotation_keep_number                           = $::neo4j::params::dbms_logs_security_rotation_keep_number,
+  $dbms_logs_security_rotation_size                                  = $::neo4j::params::dbms_logs_security_rotation_size,
+  $dbms_security_log_successful_authentication                       = $::neo4j::params::dbms_security_log_successful_authentication,
+
+  ### config monitoring metrics variables
+  $metrics_bolt_messages_enabled                                     = $::neo4j::params::metrics_bolt_messages_enabled,
+  $metrics_csv_enabled                                               = $::neo4j::params::metrics_csv_enabled,
+  $metrics_csv_interval                                              = $::neo4j::params::metrics_csv_interval,
+  $metrics_csv_path                                                  = $::neo4j::params::metrics_csv_path,
+  $metrics_cypher_replanning_enabled                                 = $::neo4j::params::metrics_cypher_replanning_enabled,
+  $metrics_enabled                                                   = $::neo4j::params::metrics_enabled,
+  $metrics_graphite_enabled                                          = $::neo4j::params::metrics_graphite_enabled,
+  $metrics_graphite_interval                                         = $::neo4j::params::metrics_graphite_interval,
+  $metrics_graphite_server                                           = $::neo4j::params::metrics_graphite_server,
+  $metrics_jvm_buffers_enabled                                       = $::neo4j::params::metrics_jvm_buffers_enabled,
+  $metrics_jvm_gc_enabled                                            = $::neo4j::params::metrics_jvm_gc_enabled,
+  $metrics_jvm_memory_enabled                                        = $::neo4j::params::metrics_jvm_memory_enabled,
+  $metrics_jvm_threads_enabled                                       = $::neo4j::params::metrics_jvm_threads_enabled,
+  $metrics_neo4j_causal_clustering_enabled                           = $::neo4j::params::metrics_neo4j_causal_clustering_enabled,
+  $metrics_neo4j_checkpointing_enabled                               = $::neo4j::params::metrics_neo4j_checkpointing_enabled,
+  $metrics_neo4j_cluster_enabled                                     = $::neo4j::params::metrics_neo4j_cluster_enabled,
+  $metrics_neo4j_counts_enabled                                      = $::neo4j::params::metrics_neo4j_counts_enabled,
+  $metrics_neo4j_enabled                                             = $::neo4j::params::metrics_neo4j_enabled,
+  $metrics_neo4j_logrotation_enabled                                 = $::neo4j::params::metrics_neo4j_logrotation_enabled,
+  $metrics_neo4j_network_enabled                                     = $::neo4j::params::metrics_neo4j_network_enabled,
+  $metrics_neo4j_pagecache_enabled                                   = $::neo4j::params::metrics_neo4j_pagecache_enabled,
+  $metrics_neo4j_server_enabled                                      = $::neo4j::params::metrics_neo4j_server_enabled,
+  $metrics_neo4j_tx_enabled                                          = $::neo4j::params::metrics_neo4j_tx_enabled,
+  $metrics_prefix                                                    = $::neo4j::params::metrics_prefix,
+
+  ### config monitoring query management variables
+  $dbms_transaction_timeout                                          = $::neo4j::params::dbms_transaction_timeout,
+
+  ### config enterprise authentication variables
+  $dbms_jvm_additional_ssl_keystore                                  = $::neo4j::params::dbms_jvm_additional_ssl_keystore,
+  $dbms_jvm_additional_ssl_keystore_password                         = $::neo4j::params::dbms_jvm_additional_ssl_keystore_password,
+  $dbms_jvm_additional_ssl_truststore                                = $::neo4j::params::dbms_jvm_additional_ssl_truststore,
+  $dbms_jvm_additional_ssl_truststore_password                       = $::neo4j::params::dbms_jvm_additional_ssl_truststore_password,
+  $dbms_security_auth_cache_max_capacity                             = $::neo4j::params::dbms_security_auth_cache_max_capacity,
+  $dbms_security_auth_cache_ttl                                      = $::neo4j::params::dbms_security_auth_cache_ttl,
+  $dbms_security_auth_enabled                                        = $::neo4j::params::dbms_security_auth_enabled,
+  $dbms_security_auth_provider                                       = $::neo4j::params::dbms_security_auth_provider,
+  $dbms_security_ha_status_auth_enabled                              = $::neo4j::params::dbms_security_ha_status_auth_enabled,
+  $dbms_security_http_authorization_classes                          = $::neo4j::params::dbms_security_http_authorization_classes,
+  $dbms_security_ldap_authentication_cache_enabled                   = $::neo4j::params::dbms_security_ldap_authentication_cache_enabled,
+  $dbms_security_ldap_authentication_mechanism                       = $::neo4j::params::dbms_security_ldap_authentication_mechanism,
+  $dbms_security_ldap_authentication_user_dn_template                = $::neo4j::params::dbms_security_ldap_authentication_user_dn_template,
+  $dbms_security_ldap_authorization_group_membership_attributes      = $::neo4j::params::dbms_security_ldap_authorization_group_membership_attributes,
+  $dbms_security_ldap_authorization_group_to_role_mapping            = $::neo4j::params::dbms_security_ldap_authorization_group_to_role_mapping,
+  $dbms_security_ldap_authorization_system_password                  = $::neo4j::params::dbms_security_ldap_authorization_system_password,
+  $dbms_security_ldap_authorization_system_username                  = $::neo4j::params::dbms_security_ldap_authorization_system_username,
+  $dbms_security_ldap_authorization_use_system_account               = $::neo4j::params::dbms_security_ldap_authorization_use_system_account,
+  $dbms_security_ldap_authorization_user_search_base                 = $::neo4j::params::dbms_security_ldap_authorization_user_search_base,
+  $dbms_security_ldap_authorization_user_search_filter               = $::neo4j::params::dbms_security_ldap_authorization_user_search_filter,
+  $dbms_security_ldap_connection_timeout                             = $::neo4j::params::dbms_security_ldap_connection_timeout,
+  $dbms_security_ldap_host                                           = $::neo4j::params::dbms_security_ldap_host,
+  $dbms_security_ldap_read_timeout                                   = $::neo4j::params::dbms_security_ldap_read_timeout,
+  $dbms_security_ldap_referral                                       = $::neo4j::params::dbms_security_ldap_referral,
+  $dbms_security_ldap_use_starttls                                   = $::neo4j::params::dbms_security_ldap_use_starttls,
+  $dbms_security_procedures_default_allowed                          = $::neo4j::params::dbms_security_procedures_default_allowed,
+  $dbms_security_procedures_roles                                    = $::neo4j::params::dbms_security_procedures_roles,
+  $unsupported_dbms_security_ldap_authorization_connection_pooling   = $::neo4j::params::unsupported_dbms_security_ldap_authorization_connection_pooling,
+
+  ### variables neo4j-wrapper.conf
+  $dbms_memory_heap_initial_size                                     = $::neo4j::params::dbms_memory_heap_initial_size,
+  $dbms_memory_heap_max_size                                         = $::neo4j::params::dbms_memory_heap_max_size,
+  $dbms_jvm_additional_commit_memory_to_process                      = $::neo4j::params::dbms_jvm_additional_commit_memory_to_process,
+  $dbms_jvm_additional_disable_explicit_gc                           = $::neo4j::params::dbms_jvm_additional_disable_explicit_gc,
+  $dbms_jvm_additional_ephemeral_dh_keysize                          = $::neo4j::params::dbms_jvm_additional_ephemeral_dh_keysize,
+  $dbms_jvm_additional_hashcode                                      = $::neo4j::params::dbms_jvm_additional_hashcode,
+  $dbms_jvm_additional_jmxremote_access_file                         = $::neo4j::params::dbms_jvm_additional_jmxremote_access_file,
+  $dbms_jvm_additional_jmxremote_authenticate                        = $::neo4j::params::dbms_jvm_additional_jmxremote_authenticate,
+  $dbms_jvm_additional_jmxremote_password_file                       = $::neo4j::params::dbms_jvm_additional_jmxremote_password_file,
+  $dbms_jvm_additional_jmxremote_port                                = $::neo4j::params::dbms_jvm_additional_jmxremote_port,
+  $dbms_jvm_additional_jmxremote_ssl                                 = $::neo4j::params::dbms_jvm_additional_jmxremote_ssl,
+  $dbms_jvm_additional_omit_stacktrace_in_fast_throw                 = $::neo4j::params::dbms_jvm_additional_omit_stacktrace_in_fast_throw,
+  $dbms_jvm_additional_rmi_server_hostname                           = $::neo4j::params::dbms_jvm_additional_rmi_server_hostname,
+  $dbms_jvm_additional_trust_final_non_static_fields                 = $::neo4j::params::dbms_jvm_additional_trust_final_non_static_fields,
+  $dbms_jvm_additional_unlock_experimental_vm_options                = $::neo4j::params::dbms_jvm_additional_unlock_experimental_vm_options,
+  $dbms_jvm_additional_unsupported_dbms_udc_source                   = $::neo4j::params::dbms_jvm_additional_unsupported_dbms_udc_source,
+  $dbms_jvm_additional_use_g1gc                                      = $::neo4j::params::dbms_jvm_additional_use_g1gc,
+  $dbms_windows_service_name                                         = $::neo4j::params::dbms_windows_service_name,
+
+  ) inherits neo4j::params {
+
+  ### validate absolute path
+  validate_absolute_path( [
+    $data_prefix,
+    $install_prefix
+  ] )
+
+  ### validate booleans
+  validate_bool(
+    $browser_allow_outgoing_connections,
+    $browser_retain_connection_credentials,
+    $causal_clustering_cluster_allow_reads_on_followers,
+    $causal_clustering_disable_middleware_logging,
+    $causal_clustering_raft_messages_log_enable,
+    $cypher_forbid_exhaustive_shortestpath,
+    $cypher_hints_error,
+    $dbms_allow_format_migration,
+    $dbms_backup_enabled,
+    $dbms_connector_bolt_enabled,
+    $dbms_connector_http_enabled,
+    $dbms_connector_https_enabled,
+    $dbms_index_sampling_background_enabled,
+    $dbms_jvm_additional_jmxremote_authenticate,
+    $dbms_jvm_additional_jmxremote_ssl,
+    $dbms_logs_gc_enabled,
+    $dbms_logs_http_enabled,
+    $dbms_logs_query_enabled,
+    $dbms_logs_query_parameter_logging_enabled,
+    $dbms_read_only,
+    $dbms_security_allow_csv_import_from_file_urls,
+    $dbms_security_allow_publisher_create_token,
+    $dbms_security_auth_enabled,
+    $dbms_security_ha_status_auth_enabled,
+    $dbms_security_ldap_authentication_cache_enabled,
+    $dbms_security_ldap_authorization_use_system_account,
+    $dbms_security_ldap_use_starttls,
+    $dbms_security_log_successful_authentication,
+    $dbms_shell_enabled,
+    $dbms_shell_read_only,
+    $dbms_udc_enabled,
+    $ha_allow_init_cluster,
+    $ha_slave_only,
+    $jmx_enable,
+    $manage_repo,
+    $metrics_bolt_messages_enabled,
+    $metrics_csv_enabled,
+    $metrics_cypher_replanning_enabled,
+    $metrics_enabled,
+    $metrics_graphite_enabled,
+    $metrics_jvm_buffers_enabled,
+    $metrics_jvm_gc_enabled,
+    $metrics_jvm_memory_enabled,
+    $metrics_jvm_threads_enabled,
+    $metrics_neo4j_causal_clustering_enabled,
+    $metrics_neo4j_checkpointing_enabled,
+    $metrics_neo4j_cluster_enabled,
+    $metrics_neo4j_counts_enabled,
+    $metrics_neo4j_enabled,
+    $metrics_neo4j_logrotation_enabled,
+    $metrics_neo4j_network_enabled,
+    $metrics_neo4j_pagecache_enabled,
+    $metrics_neo4j_server_enabled,
+    $metrics_neo4j_tx_enabled,
+    $service_enable,
+    $tools_consistency_checker_check_graph,
+    $tools_consistency_checker_check_indexes,
+    $tools_consistency_checker_check_label_scan_store,
+    $tools_consistency_checker_check_property_owners,
+    $unsupported_dbms_security_ldap_authorization_connection_pooling,
+  )
+
+  ### validate byte size
+  validate_re( $causal_clustering_raft_log_rotation_size,  &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_memory_heap_initial_size,             &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_memory_heap_max_size,                 &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_index_sampling_buffer_size,           &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_logs_debug_rotation_size,             &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_logs_gc_rotation_size,                &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_logs_http_rotation_size,              &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_logs_query_rotation_size,             &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_logs_security_rotation_size,          &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_memory_pagecache_size,                &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $dbms_tx_log_rotation_size,                 &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+  validate_re( $ha_data_chunk_size,                        &#39;[1-9][0-9]*(?i:[kmg])?&#39; )
+
+  ### validate dbms_mode
+  validate_re( $dbms_mode, &#39;(ARBITER|CORE|HA|READ_REPLICA|SINGLE)&#39; )
+
+  ### validate duration
+  validate_re( $browser_credential_timeout,                          &#39;(0|[1-9][0-9]*)(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_cluster_routing_ttl,               &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_cluster_topology_refresh,          &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_join_catch_up_timeout,             &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_leader_election_timeout,           &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_pull_interval,                     &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_raft_log_pruning_frequency,        &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_read_replica_refresh_rate,         &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_read_replica_time_to_live,         &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $causal_clustering_unknown_address_logging_throttle,  &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $cypher_min_replan_interval,                          &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_checkpoint_interval_time,                       &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_logs_debug_rotation_delay,                      &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_logs_query_threshold,                           &#39;(0|[1-9][0-9]*)(ms|s|m)?&#39; )
+  validate_re( $dbms_logs_security_rotation_delay,                   &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_rest_transaction_idle_timeout,                  &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_security_auth_cache_ttl,                        &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_security_ldap_connection_timeout,               &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_security_ldap_read_timeout,                     &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $dbms_transaction_timeout,                            &#39;(0|[1-9][0-9]*)(ms|s|m)?&#39; )
+  validate_re( $ha_broadcast_timeout,                                &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_configuration_timeout,                            &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_default_timeout,                                  &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_election_timeout,                                 &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_heartbeat_interval,                               &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_heartbeat_timeout,                                &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_internal_role_switch_timeout,                     &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_join_timeout,                                     &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_learn_timeout,                                    &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_leave_timeout,                                    &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_paxos_timeout,                                    &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_phase1_timeout,                                   &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_phase2_timeout,                                   &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_pull_interval,                                    &#39;(0|[1-9][0-9]*)(ms|s|m)?&#39; )
+  validate_re( $ha_role_switch_timeout,                              &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_slave_lock_timeout,                               &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $ha_slave_read_timeout,                               &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $metrics_csv_interval,                                &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+  validate_re( $metrics_graphite_interval,                           &#39;[1-9][0-9]*(ms|s|m)?&#39; )
+
+  ### validate filesystem path
+  validate_re( $dbms_directories_certificates,  &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_data,          &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_import,        &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_lib,           &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_logs,          &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_metrics,       &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_plugins,       &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $dbms_directories_run,           &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+  validate_re( $metrics_csv_path,               &#39;/?[0-9a-z_][0-9a-z_]*(/[0-9a-z_][0-9a-z_]*)*&#39; )
+
+  ### validate hostname and port
+  validate_re( $dbms_backup_address,                  &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $dbms_connector_bolt_listen_address,   &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $dbms_connector_http_listen_address,   &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $dbms_connector_https_listen_address,  &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $ha_host_coordination,                 &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $ha_host_data,                         &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+  validate_re( $metrics_graphite_server,              &#39;([a-z][0-9a-z_]*(\.[0-9a-z]_)*)?:[1-9][0-9]*&#39; )
+
+  ### validate service provider
+  validate_re( $service_provider, &#39;debian|init|redhat|systemd&#39; )
+
+  ### validate arrays
+  validate_array( $browser_remote_content_hostname_whitelist )
+
+  ### validate integers
+  validate_integer([
+    $causal_clustering_catchup_batch_size,
+    $causal_clustering_expected_core_cluster_size,
+    $causal_clustering_last_applied_state_size,
+    $causal_clustering_log_shipping_max_lag,
+    $causal_clustering_outgoing_queue_size,
+    $causal_clustering_raft_log_reader_pool_size,
+    $dbms_checkpoint_interval_tx,
+    $dbms_index_sampling_sample_size_limit,
+    $dbms_index_searcher_cache_size,
+    $dbms_logs_debug_rotation_keep_number,
+    $dbms_logs_gc_rotation_keep_number,
+    $dbms_logs_http_rotation_keep_number,
+    $dbms_logs_query_rotation_keep_number,
+    $dbms_logs_security_rotation_keep_number,
+    $dbms_query_cache_size,
+    $dbms_relationship_grouping_threshold,
+    $dbms_shell_port,
+    $ha_max_acceptors,
+    $ha_max_channels_per_slave,
+    $ha_pull_batch_size,
+    $ha_tx_push_factor,
+    $service_ulimit,
+    $service_shutdown_timeout
+  ])
+
+  ### validate strings
+  validate_string(
+    $causal_clustering_raft_log_implementation,
+    $causal_clustering_raft_log_prune_strategy,
+    $dbms_active_database,
+    $dbms_connectors_default_advertised_address,
+    $dbms_connectors_default_listen_address,
+    $dbms_jvm_additional_commit_memory_to_process,
+    $dbms_jvm_additional_disable_explicit_gc,
+    $dbms_jvm_additional_ephemeral_dh_keysize,
+    $dbms_jvm_additional_jmxremote_access_file,
+    $dbms_jvm_additional_omit_stacktrace_in_fast_throw,
+    $dbms_jvm_additional_rmi_server_hostname,
+    $dbms_jvm_additional_ssl_keystore,
+    $dbms_jvm_additional_ssl_keystore_password,
+    $dbms_jvm_additional_ssl_truststore,
+    $dbms_jvm_additional_ssl_truststore_password,
+    $dbms_jvm_additional_trust_final_non_static_fields,
+    $dbms_jvm_additional_unlock_experimental_vm_options,
+    $dbms_jvm_additional_unsupported_dbms_udc_source,
+    $dbms_jvm_additional_use_g1gc,
+    $dbms_memory_pagecache_swapper,
+    $dbms_mode,
+    $dbms_record_format,
+    $dbms_security_auth_provider,
+    $dbms_security_ldap_authentication_mechanism,
+    $dbms_security_ldap_authentication_user_dn_template,
+    $dbms_security_ldap_authorization_group_to_role_mapping,
+    $dbms_security_ldap_authorization_system_password,
+    $dbms_security_ldap_authorization_system_username,
+    $dbms_security_ldap_authorization_user_search_base,
+    $dbms_security_ldap_authorization_user_search_filter,
+    $dbms_security_ldap_host,
+    $dbms_security_ldap_referral,
+    $dbms_security_procedures_default_allowed,
+    $dbms_security_procedures_roles,
+    $dbms_shell_host,
+    $dbms_shell_rmi_name,
+    $dbms_tx_log_rotation_retention_policy,
+    $edition,
+    $group,
+    $ha_tx_push_strategy,
+    $install_method,
+    $metrics_prefix,
+    $release_deb,
+    $release_rpm,
+    $service_ensure,
+    $service_name,
+    $user,
+    $version,
+  )
+
+  #http://www.neo4j.com/customer/download/neo4j-enterprise-2.1.4-unix.tar.gz
+  $source_name     = &quot;neo4j-${edition}-${version}&quot;
+  $source_tarball = &quot;${source_name}.tgz&quot;
+
+  if ( $::kernel != &#39;Linux&#39; ) {
+    fail(&#39;Only Linux is supported at this time.&#39;)
+  }
+
+  if !( $edition in [&#39;community&#39;, &#39;enterprise&#39;] ){
+    fail(&#39;Only edtions \&#39;community\&#39; and \&#39;enterprise\&#39; are present.&#39;)
+  }
+
+  if ( $edition == &#39;enterprise&#39; ) {
+    $package_name = &quot;neo4j-${edition}&quot;
+  } else {
+    $package_name = &#39;neo4j&#39;
+  }
+
+  case $install_method {
+    &#39;package&#39;: {
+      if ( $version =~ /[\d.]+/ and versioncmp( $version, &#39;3.0.0&#39; ) &lt; 0 ) {
+        fail(&#39;Only versions &gt;= 3.0.0 are supported at this time.&#39;)
+      }
+      $neo4j_home = &quot;${install_prefix}/neo4j&quot;
+      $config_dir = &#39;/etc/neo4j&#39;
+    }
+    &#39;archive&#39;: {
+      if ( versioncmp( $version, &#39;3.0.0&#39; ) &lt; 0 ) {
+        fail(&#39;Only versions &gt;= 3.0.0 are supported at this time.&#39;)
+      }
+      $neo4j_home = &quot;${install_prefix}/${source_name}&quot;
+      $config_dir = &quot;${neo4j_home}/conf&quot;
+    }
+    default: {
+      fail(&quot;Installation method ${install_method} not supported.&quot;)
+    }
+  }
+
+  if ( is_absolute_path( $dbms_directories_data )) {
+    $data_dir = $dbms_directories_data
+  } else {
+    $data_dir = &quot;${install_prefix}/${dbms_directories_data}&quot;
+  }
+
+  if ( is_absolute_path( $dbms_directories_logs )) {
+    $logs_dir = $dbms_directories_logs
+  } else {
+    $logs_dir = &quot;${install_prefix}/${dbms_directories_logs}&quot;
+  }
+
+  if ( $dbms_mode in [&#39;HA&#39;, &#39;ARBITER&#39;, &#39;CORE&#39;, &#39;READ_REPLICA&#39;] ){
+    if ( !is_numeric( $ha_server_id ) ) {
+      fail(&#39;The Server Id value must be specified and must numeric.&#39;)
+    }
+  }
+
+  anchor { &#39;neo4j::begin&#39;: } -&gt;
+  class{&#39;::neo4j::install&#39;:} -&gt;
+  class{&#39;::neo4j::config&#39;:} ~&gt;
+  class{&#39;::neo4j::service&#39;:} -&gt;
+  anchor { &#39;neo4j::end&#39;: }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Thu Feb 16 16:23:43 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.8 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>

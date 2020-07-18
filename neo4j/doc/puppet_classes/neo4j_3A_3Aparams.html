@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: neo4j::params
+  
+    &mdash; Documentation by YARD 0.9.8
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::neo4j::params";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (n)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">neo4j::params</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: neo4j::params</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Inherited by:</dt>
+    <dd>
+      
+      <span class='object_link'><a href="neo4j.html" title="puppet_classes::neo4j (puppet_class)">neo4j</a></span><br/>
+      
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/params.pp
+    </dd>
+  </dl>
+</div>
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    <p>== Class: neo4j::params</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/params.pp', line 3</span>
+
+class neo4j::params {
+  $browser_allow_outgoing_connections                                = true
+  $browser_credential_timeout                                        = &#39;0&#39;
+  $browser_remote_content_hostname_whitelist                         = [&#39;http://guides.neo4j.com&#39;,
+                                                                        &#39;https://guides.neo4j.com&#39;,
+                                                                        &#39;http://localhost&#39;,
+                                                                        &#39;https://localhost&#39;
+]
+  $browser_retain_connection_credentials                             = true
+  $causal_clustering_array_block_id_allocation_size                  = 1024
+  $causal_clustering_catchup_batch_size                              = 64
+  $causal_clustering_cluster_allow_reads_on_followers                = false
+  $causal_clustering_cluster_routing_ttl                             = &#39;300000&#39;
+  $causal_clustering_cluster_topology_refresh                        = &#39;60000&#39;
+  $causal_clustering_disable_middleware_logging                      = true
+  $causal_clustering_discovery_advertised_address                    = &#39;localhost:5000&#39;
+  $causal_clustering_discovery_listen_address                        = &#39;localhost:5000&#39;
+  $causal_clustering_expected_core_cluster_size                      = 3
+  $causal_clustering_global_session_tracker_state_size               = 1000
+  $causal_clustering_id_alloc_state_size                             = 1000
+  $causal_clustering_initial_discovery_members                       = []
+  $causal_clustering_join_catch_up_timeout                           = &#39;600000&#39;
+  $causal_clustering_label_token_id_allocation_size                  = 32
+  $causal_clustering_label_token_name_id_allocation_size             = 1024
+  $causal_clustering_last_applied_state_size                         = 1000
+  $causal_clustering_leader_election_timeout                         = &#39;7000&#39;
+  $causal_clustering_log_shipping_max_lag                            = 256
+  $causal_clustering_neostore_block_id_allocation_size               = 1024
+  $causal_clustering_node_id_allocation_size                         = 1024
+  $causal_clustering_node_labels_id_allocation_size                  = 1024
+  $causal_clustering_outgoing_queue_size                             = 64
+  $causal_clustering_property_id_allocation_size                     = 1024
+  $causal_clustering_property_key_token_id_allocation_size           = 32
+  $causal_clustering_property_key_token_name_id_allocation_size      = 1024
+  $causal_clustering_pull_interval                                   = &#39;1000&#39;
+  $causal_clustering_raft_advertised_address                         = 7000
+  $causal_clustering_raft_listen_address                             = 7000
+  $causal_clustering_raft_log_implementation                         = &#39;SEGMENTED&#39;
+  $causal_clustering_raft_log_prune_strategy                         = &#39;1g size&#39;
+  $causal_clustering_raft_log_pruning_frequency                      = &#39;600000&#39;
+  $causal_clustering_raft_log_reader_pool_size                       = 8
+  $causal_clustering_raft_log_rotation_size                          = &#39;250m&#39;
+  $causal_clustering_raft_membership_state_size                      = 1000
+  $causal_clustering_raft_messages_log_enable                        = false
+  $causal_clustering_raft_term_state_size                            = 1000
+  $causal_clustering_raft_vote_state_size                            = 1000
+  $causal_clustering_read_replica_refresh_rate                       = &#39;5000&#39;
+  $causal_clustering_read_replica_time_to_live                       = &#39;60000&#39;
+  $causal_clustering_relationship_group_id_allocation_size           = 1024
+  $causal_clustering_relationship_id_allocation_size                 = 1024
+  $causal_clustering_relationship_type_token_id_allocation_size      = 32
+  $causal_clustering_relationship_type_token_name_id_allocation_size = 1024
+  $causal_clustering_replicated_lock_token_state_size                = 1000
+  $causal_clustering_schema_id_allocation_size                       = 1024
+  $causal_clustering_state_machine_apply_max_batch_size              = 16
+  $causal_clustering_state_machine_flush_window_size                 = 4096
+  $causal_clustering_string_block_id_allocation_size                 = 1024
+  $causal_clustering_transaction_advertised_address                  = &#39;127.0.0.1:6000&#39;
+  $causal_clustering_transaction_listen_address                      = &#39;127.0.0.1:6000&#39;
+  $causal_clustering_unknown_address_logging_throttle                = &#39;10000&#39;
+  $cypher_default_language_version                                   = &#39;default&#39;
+  $cypher_forbid_exhaustive_shortestpath                             = false
+  $cypher_hints_error                                                = false
+  $cypher_min_replan_interval                                        = &#39;10000&#39;
+  $cypher_planner                                                    = &#39;default&#39;
+  $cypher_statistics_divergence_threshold                            = 0.75
+  $data_prefix                                                       = &#39;/var/lib/neo4j&#39;
+  $dbms_active_database                                              = &#39;graph.db&#39;
+  $dbms_allow_format_migration                                       = false
+  $dbms_backup_address                                               = &#39;127.0.0.1:6362&#39;
+  $dbms_backup_enabled                                               = true
+  $dbms_checkpoint_interval_time                                     = &#39;300000&#39;
+  $dbms_checkpoint_interval_tx                                       = 100000
+  $dbms_checkpoint_iops_limit                                        = 1000
+  $dbms_connector_bolt_advertised_address                            = undef
+  $dbms_connector_bolt_enabled                                       = true
+  $dbms_connector_bolt_listen_address                                = &#39;:9000&#39;
+  $dbms_connector_http_advertised_address                            = undef
+  $dbms_connector_http_enabled                                       = true
+  $dbms_connector_http_listen_address                                = &#39;:7474&#39;
+  $dbms_connector_https_advertised_address                           = undef
+  $dbms_connector_https_enabled                                      = true
+  $dbms_connector_https_listen_address                               = &#39;:7473&#39;
+  $dbms_connectors_default_advertised_address                        = &#39;localhost&#39;
+  $dbms_connectors_default_listen_address                            = &#39;0.0.0.0&#39;
+  $dbms_ids_reuse_types_override                                     = [ &#39;RELATIONSHIP&#39;, &#39;NODE&#39;]
+  $dbms_index_sampling_background_enabled                            = true
+  $dbms_index_sampling_buffer_size                                   = &#39;64m&#39;
+  $dbms_index_sampling_sample_size_limit                             = 8388608
+  $dbms_index_sampling_update_percentage                             = 5
+  $dbms_index_searcher_cache_size                                    = 2147483647
+  $dbms_jvm_additional_commit_memory_to_process                      = &#39;-XX:+AlwaysPreTouch&#39;
+  $dbms_jvm_additional_disable_explicit_gc                           = &#39;-XX:+DisableExplicitGC&#39;
+  $dbms_jvm_additional_ephemeral_dh_keysize                          = &#39;-Djdk.tls.ephemeralDHKeySize=2048&#39;
+  $dbms_jvm_additional_hashcode                                      = &#39;-XX:hashCode=5&#39;
+  $dbms_jvm_additional_jmxremote_access_file                         = &#39;jmx.access&#39;
+  $dbms_jvm_additional_jmxremote_authenticate                        = true
+  $dbms_jvm_additional_jmxremote_password_file                       = &#39;jmx.password&#39;
+  $dbms_jvm_additional_jmxremote_port                                = 3637
+  $dbms_jvm_additional_jmxremote_ssl                                 = false
+  $dbms_jvm_additional_omit_stacktrace_in_fast_throw                 = &#39;-XX:-OmitStackTraceInFastThrow&#39;
+  $dbms_jvm_additional_rmi_server_hostname                           = &#39;-Djava.rmi.server.hostname=&#39;
+  $dbms_jvm_additional_ssl_keystore                                  = &#39;MyCert.jks&#39;
+  $dbms_jvm_additional_ssl_keystore_password                         = &#39;secret&#39;
+  $dbms_jvm_additional_ssl_truststore                                = &#39;MyCert.jks&#39;
+  $dbms_jvm_additional_ssl_truststore_password                       = &#39;secret&#39;
+  $dbms_jvm_additional_trust_final_non_static_fields                 = &#39;-XX:+TrustFinalNonStaticFields&#39;
+  $dbms_jvm_additional_unlock_experimental_vm_options                = &#39;-XX:+UnlockExperimentalVMOptions&#39;
+  $dbms_jvm_additional_unsupported_dbms_udc_source                   = &#39;tarball&#39;
+  $dbms_jvm_additional_use_g1gc                                      = &#39;-XX:+UseG1GC&#39;
+  $dbms_logs_debug_level                                             = &#39;INFO&#39;
+  $dbms_logs_debug_rotation_delay                                    = &#39;300000&#39;
+  $dbms_logs_debug_rotation_keep_number                              = 7
+  $dbms_logs_debug_rotation_size                                     = &#39;20m&#39;
+  $dbms_logs_gc_enabled                                              = false
+  $dbms_logs_gc_options                                              = [&#39;-XX:+PrintGCDetails&#39;,
+                                                                        &#39;-XX:+PrintGCDateStamps&#39;,
+                                                                        &#39;-XX:+PrintGCApplicationStoppedTime&#39;,
+                                                                        &#39;-XX:+PrintPromotionFailure&#39;,
+                                                                        &#39;-XX:+PrintTenuringDistribution&#39; ]
+  $dbms_logs_gc_rotation_keep_number                                 = 5
+  $dbms_logs_gc_rotation_size                                        = &#39;20m&#39;
+  $dbms_logs_http_enabled                                            = true
+  $dbms_logs_http_rotation_keep_number                               = 5
+  $dbms_logs_http_rotation_size                                      = &#39;20m&#39;
+  $dbms_logs_query_enabled                                           = false
+  $dbms_logs_query_parameter_logging_enabled                         = true
+  $dbms_logs_query_rotation_keep_number                              = 7
+  $dbms_logs_query_rotation_size                                     = &#39;20m&#39;
+  $dbms_logs_query_threshold                                         = &#39;0&#39;
+  $dbms_logs_security_level                                          = &#39;INFO&#39;
+  $dbms_logs_security_rotation_delay                                 = &#39;300s&#39;
+  $dbms_logs_security_rotation_keep_number                           = 7
+  $dbms_logs_security_rotation_size                                  = &#39;20m&#39;
+  $dbms_memory_heap_initial_size                                     = &#39;512m&#39;
+  $dbms_memory_heap_max_size                                         = &#39;512m&#39;
+  $dbms_memory_pagecache_size                                        = &#39;240k&#39;
+  $dbms_memory_pagecache_swapper                                     = undef
+  $dbms_mode                                                         = &#39;SINGLE&#39;
+  $dbms_query_cache_size                                             = 1000
+  $dbms_read_only                                                    = false
+  $dbms_record_format                                                = &#39;standard&#39;
+  $dbms_relationship_grouping_threshold                              = 50
+  $dbms_rest_transaction_idle_timeout                                = &#39;60000&#39;
+  $dbms_security_allow_csv_import_from_file_urls                     = true
+  $dbms_security_allow_publisher_create_token                        = false
+  $dbms_security_auth_cache_max_capacity                             = 10000
+  $dbms_security_auth_cache_ttl                                      = &#39;10m&#39;
+  $dbms_security_auth_enabled                                        = true
+  $dbms_security_auth_provider                                       = &#39;native&#39;
+  $dbms_security_ha_status_auth_enabled                              = true
+  $dbms_security_http_authorization_classes                          = undef
+  $dbms_security_ldap_authentication_cache_enabled                   = true
+  $dbms_security_ldap_authentication_mechanism                       = &#39;simple&#39;
+  $dbms_security_ldap_authentication_user_dn_template                = &#39;uid={0},ou=users,dc=example,dc=com&#39;
+  $dbms_security_ldap_authorization_group_membership_attributes      = [ &#39;memberOf&#39; ]
+  $dbms_security_ldap_authorization_group_to_role_mapping            = undef
+  $dbms_security_ldap_authorization_system_password                  = &#39;secret&#39;
+  $dbms_security_ldap_authorization_system_username                  = &#39;cn=search-account,cn=Users,dc=example,dc=com&#39;
+  $dbms_security_ldap_authorization_use_system_account               = false
+  $dbms_security_ldap_authorization_user_search_base                 = &#39;cn=users,dc=example,dc=com&#39;
+  $dbms_security_ldap_authorization_user_search_filter               = &#39;(&amp;(objectClass=*)(uid={0}))&#39;
+  $dbms_security_ldap_connection_timeout                             = &#39;30000&#39;
+  $dbms_security_ldap_host                                           = &#39;localhost&#39;
+  $dbms_security_ldap_read_timeout                                   = &#39;30000&#39;
+  $dbms_security_ldap_referral                                       = &#39;follow&#39;
+  $dbms_security_ldap_use_starttls                                   = false
+  $dbms_security_log_successful_authentication                       = true
+  $dbms_security_procedures_default_allowed                          = &#39;&#39;
+  $dbms_security_procedures_roles                                    = &#39;&#39;
+  $dbms_shell_enabled                                                = false
+  $dbms_shell_host                                                   = &#39;127.0.0.1&#39;
+  $dbms_shell_port                                                   = 1337
+  $dbms_shell_read_only                                              = false
+  $dbms_shell_rmi_name                                               = &#39;shell&#39;
+  $dbms_threads_worker_count                                         = 1
+  $dbms_transaction_timeout                                          = &#39;0&#39;
+  $dbms_tx_log_rotation_retention_policy                             = &#39;7 days&#39;
+  $dbms_tx_log_rotation_size                                         = &#39;250m&#39;
+  $dbms_udc_enabled                                                  = false
+  $dbms_unmanaged_extension_classes                                  = []
+  $dbms_windows_service_name                                         = undef
+  $edition                                                           = &#39;community&#39;
+  $group                                                             = &#39;users&#39;
+  $ha_allow_init_cluster                                             = true
+  $ha_branched_data_copying_strategy                                 = &#39;branch_then_copy&#39;
+  $ha_branched_data_policy                                           = &#39;keep_all&#39;
+  $ha_broadcast_timeout                                              = &#39;30000&#39;
+  $ha_configuration_timeout                                          = &#39;1000&#39;
+  $ha_data_chunk_size                                                = &#39;2m&#39;
+  $ha_default_timeout                                                = &#39;5000&#39;
+  $ha_election_timeout                                               = &#39;5000&#39;
+  $ha_heartbeat_interval                                             = &#39;5000&#39;
+  $ha_heartbeat_timeout                                              = &#39;40000&#39;
+  $ha_host_coordination                                              = &#39;0.0.0.0:5001&#39;
+  $ha_host_data                                                      = &#39;0.0.0.0:6001&#39;
+  $ha_initial_hosts                                                  = []
+  $ha_internal_role_switch_timeout                                   = &#39;10000&#39;
+  $ha_join_timeout                                                   = &#39;30000&#39;
+  $ha_learn_timeout                                                  = &#39;5000&#39;
+  $ha_leave_timeout                                                  = &#39;30000&#39;
+  $ha_max_acceptors                                                  = 21
+  $ha_max_channels_per_slave                                         = 20
+  $ha_paxos_timeout                                                  = &#39;5000&#39;
+  $ha_phase1_timeout                                                 = &#39;5000&#39;
+  $ha_phase2_timeout                                                 = &#39;5000&#39;
+  $ha_pull_batch_size                                                = 100
+  $ha_pull_interval                                                  = &#39;0&#39;
+  $ha_role_switch_timeout                                            = &#39;120000&#39;
+  $ha_server_id                                                      = 1
+  $ha_slave_lock_timeout                                             = &#39;20000&#39;
+  $ha_slave_only                                                     = false
+  $ha_slave_read_timeout                                             = &#39;20000&#39;
+  $ha_tx_push_factor                                                 = 1
+  $ha_tx_push_strategy                                               = &#39;fixed_ascending&#39;
+  $install_method                                                    = &#39;package&#39;
+  $jmx_enable                                                        = false
+  $manage_repo                                                       = false
+  $metrics_bolt_messages_enabled                                     = false
+  $metrics_csv_enabled                                               = false
+  $metrics_csv_interval                                              = &#39;3m&#39;
+  $metrics_csv_path                                                  = &#39;metrics&#39;
+  $metrics_cypher_replanning_enabled                                 = false
+  $metrics_enabled                                                   = false
+  $metrics_graphite_enabled                                          = false
+  $metrics_graphite_interval                                         = &#39;3m&#39;
+  $metrics_graphite_server                                           = &#39;localhost:2003&#39;
+  $metrics_jvm_buffers_enabled                                       = false
+  $metrics_jvm_gc_enabled                                            = false
+  $metrics_jvm_memory_enabled                                        = false
+  $metrics_jvm_threads_enabled                                       = false
+  $metrics_neo4j_causal_clustering_enabled                           = false
+  $metrics_neo4j_checkpointing_enabled                               = false
+  $metrics_neo4j_cluster_enabled                                     = false
+  $metrics_neo4j_counts_enabled                                      = false
+  $metrics_neo4j_enabled                                             = false
+  $metrics_neo4j_logrotation_enabled                                 = false
+  $metrics_neo4j_network_enabled                                     = false
+  $metrics_neo4j_pagecache_enabled                                   = false
+  $metrics_neo4j_server_enabled                                      = false
+  $metrics_neo4j_tx_enabled                                          = false
+  $metrics_prefix                                                    = &#39;neo4j&#39;
+  $release_deb                                                       = &#39;stable&#39;
+  $release_rpm                                                       = &#39;stable&#39;
+  $service_enable                                                    = true
+  $service_ensure                                                    = &#39;running&#39;
+  $service_name                                                      = &#39;neo4j&#39;
+  $service_ulimit                                                    = 60000
+  $service_shutdown_timeout                                          = 120
+  $tools_consistency_checker_check_graph                             = true
+  $tools_consistency_checker_check_indexes                           = true
+  $tools_consistency_checker_check_label_scan_store                  = true
+  $tools_consistency_checker_check_property_owners                   = false
+  $unsupported_dbms_security_ldap_authorization_connection_pooling   = true
+  $user                                                              = &#39;neo4j&#39;
+
+  case $::osfamily {
+    &#39;RedHat&#39;: {
+      case $::operatingsystemrelease {
+        /6.*/ : {
+          $install_prefix   = &#39;/usr/share&#39;
+          $service_provider = &#39;redhat&#39;
+        }
+        default : {
+          $install_prefix   = &#39;/usr/share&#39;
+          $service_provider = &#39;systemd&#39;
+        }
+      }
+      $dbms_directories_certificates = &#39;certificates&#39;
+      $dbms_directories_data         = &#39;data&#39;
+      $dbms_directories_import       = &#39;import&#39;
+      $dbms_directories_lib          = &#39;/usr/share/neo4j/lib&#39;
+      $dbms_directories_logs         = &#39;/var/log/neo4j&#39;
+      $dbms_directories_metrics      = &#39;metrics&#39;
+      $dbms_directories_plugins      = &#39;plugins&#39;
+      $dbms_directories_run          = &#39;/var/run/neo4j&#39;
+      $default_file                  = &#39;/etc/sysconfig/neo4j&#39;
+      $version                       = &#39;installed&#39;
+    }
+    &#39;Debian&#39;: {
+      case $::operatingsystemrelease {
+        /(7.*|14\.04.*)/ : {
+          $service_provider = &#39;debian&#39;
+        }
+        default : {
+          $service_provider = &#39;systemd&#39;
+        }
+      }
+      $dbms_directories_certificates = &#39;certificates&#39;
+      $dbms_directories_data         = &#39;data&#39;
+      $dbms_directories_import       = &#39;import&#39;
+      $dbms_directories_lib          = &#39;/usr/share/neo4j/lib&#39;
+      $dbms_directories_logs         = &#39;/var/log/neo4j&#39;
+      $dbms_directories_metrics      = &#39;metrics&#39;
+      $dbms_directories_plugins      = &#39;plugins&#39;
+      $dbms_directories_run          = &#39;/var/run/neo4j&#39;
+      $default_file                  = &#39;/etc/default/neo4j&#39;
+      $install_prefix                = &#39;/usr&#39;
+      $version                       = &#39;installed&#39;
+    }
+    default: {
+      fail( &quot;Unsupported OS family: ${::osfamily}&quot; )
+    }
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Wed Feb 15 18:09:56 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.8 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>

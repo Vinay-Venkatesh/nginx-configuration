@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.8
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1>neo4j puppet module</h1>
+
+<p><a href="https://forge.puppetlabs.com/mlambrichs/neo4j"><img src="http://img.shields.io/puppetforge/v/mlambrichs/neo4j.svg" alt="Puppet Forge"></a> <a href="https://travis-ci.org/mlambrichs/puppet-neo4j"><img src="https://travis-ci.org/mlambrichs/puppet-neo4j.svg?branch=master" alt="Build Status"></a></p>
+
+<p>=====================</p>
+
+<h4>Table of Contents</h4>
+
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#reference">Reference</a></li>
+</ol>
+
+<h2>Overview</h2>
+
+<p>Installs Neo4J (<a href="http://www.neo4j.com">http://www.neo4j.com</a>) on Ubuntu/Debian from their distribution tarballs downloaded directly from their site.</p>
+
+<h2>Setup</h2>
+
+<p>All of the setup for any of the configuration is done through via class <code>neo4j</code>.  There are default options
+provided such that you can install Neo4j into <code>/opt/neo4j</code> and start listening on <code>http://your_ip:7474/</code> by specifying:</p>
+
+<pre class="code puppet"><code class="puppet">include neo4j
+</code></pre>
+
+<p>To install enterprise edition 2.0.3, you can specify:</p>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  version =&gt; &#39;2.0.3&#39;,
+  edition =&gt; &#39;enterprise&#39;,
+}
+</code></pre>
+
+<p>See <a href="#usage">usage</a> scenarios below for further usages.</p>
+
+<h2>Usage</h2>
+
+<p>Currently, all of the configurations are done through the class <code>neo4j</code> including clustered Neo4j server.</p>
+
+<p>Here are some example of different configurations that people could use this module to manage their Neo4j instances.</p>
+
+<p><strong>Note:</strong> <em>For an explain of parameters and a complete list, please see the <a href="#reference">reference</a> section below.</em></p>
+
+<h3>Basic Install</h3>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+}
+</code></pre>
+
+<h3>Different Version</h3>
+
+<p>All known versions &gt;= 2.0.0 can be installed.  For the list of current releases, you can go to <a href="http://neo4j.com/download/">http://neo4j.com/download/</a>.</p>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  version =&gt; &#39;2.0.3&#39;,
+  edition =&gt; &#39;enterprise&#39;,
+}
+</code></pre>
+
+<h3>Different Install Path</h3>
+
+<p>If you want to install to another directory, use the <code>install_prefix</code> parameter.</p>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  install_prefix =&gt; &#39;/tmp&#39;,
+}
+</code></pre>
+
+<h3>Custom JVM Memory Options</h3>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  jvm_init_memory =&gt; &#39;1024&#39;,
+  jvm_max_memory  =&gt; &#39;1024&#39;,
+}
+</code></pre>
+
+<h3>Cache Options</h3>
+
+<p>The cache options can be customized too to allow for better performance scaling.  For an explanation and usage
+of these options, see Neo4j documentation on <a href="http://docs.neo4j.org/chunked/stable/configuration-caches.html">caching</a>.</p>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  nodestore_memory                  =&gt; &#39;25M&#39;,
+  relationshipstore_memory          =&gt; &#39;50M&#39;,
+  propertystore_memory              =&gt; &#39;100M&#39;,
+  propertystore_strings_memory      =&gt; &#39;130M&#39;,
+  propertystore_arrays_memory       =&gt; &#39;130M&#39;,
+  cache_type                        =&gt; &#39;hpc&#39;,
+  cache_memory_ratio                =&gt; &#39;50.0&#39;,
+  node_cache_array_fraction         =&gt; &#39;5&#39;,
+  relationship_cache_array_fraction =&gt; &#39;5&#39;,
+  node_cache_size                   =&gt; &#39;100M&#39;,
+  relationship_cache_size           =&gt; &#39;100M&#39;,
+}
+</code></pre>
+
+<h3>Authentication and User Management</h3>
+
+<p>To force authentication of the data and management entry points, you can use the <code>auth_ensure</code> and include <code>auth_admin_user</code> and <code>auth_admin_password</code> parameters too.
+The <code>auth_users</code> is optional, but can be used to manage authorized users.</p>
+
+<pre class="code puppet"><code class="puppet">$auth_users = {
+  user1 =&gt; {
+    ensure     =&gt; present,
+    password   =&gt; &#39;puppet&#39;,
+    readWrite  =&gt; true,
+  },
+}
+
+class { &#39;neo4j&#39; :
+  auth_ensure         =&gt; present,
+  auth_admin_user     =&gt; &#39;admin&#39;,
+  auth_admin_password =&gt; &#39;password&#39;,
+  auth_users          =&gt; $auth_users, #optional
+}
+</code></pre>
+
+<h3>New Relic Monitoring</h3>
+
+<p>You can also specify to monitor the server with New Relic. Sign-up and monitoring is free from <a href="http://www.newrelic.com">http://www.newrelic.com</a>.</p>
+
+<pre class="code puppet"><code class="puppet">class { &#39;neo4j&#39; :
+  newrelic_jar_path =&gt; &#39;/path/to/newrelic.jar&#39;,
+}
+</code></pre>
+
+<h2>Reference</h2>
+
+<h3>neo4j</h3>
+
+<p>Manages the server.</p>
+
+<h4>Attributes</h4>
+
+<ul>
+<li><code>version</code> -- The version of Neo4j to install.
+<strong>Default:</strong> <em>2.1.2</em></li>
+<li><code>edition</code> -- The edition of Neo4j to install. Possibles: (<em>community</em>, <em>enterprise</em>).
+<strong>Default:</strong> <em>community</em></li>
+<li><code>install_prefix</code> -- Where to install the software.
+<strong>Default:</strong> <em>/opt/neo4j</em></li>
+<li><code>allow_remote_connections</code> -- Whether to allow remote connections to Neo4j instead of only from localhost.
+<strong>Default:</strong> <em>true</em></li>
+<li><code>address</code> -- Specify the address to listen at if <code>allow_remote_connections</code> is set to <em>true</em>.
+<strong>Default:</strong> <em>ipaddress</em> (from puppet facts)</li>
+</ul>
+
+<h6>Custom Memory Attributes</h6>
+
+<ul>
+<li><code>jvm_init_memory</code>* -- Initial memory size of the jvm. Equates to java option &quot;-Xms=XXX&quot;. Specified in MBs.
+<strong>Default:</strong> <em>1024</em></li>
+<li><code>jvm_max_memory</code>* -- Maximum memory size of the jvm. Equates to java option &quot;-Xmx=XXX&quot;. Specified in MBs.
+<strong>Default:</strong> <em>1024</em></li>
+</ul>
+
+<h6>Custom Cache Attributes -- See Neo4j documentation on <a href="http://docs.neo4j.org/chunked/stable/configuration-caches.html">caching</a></h6>
+
+<ul>
+<li><code>nodestore_memory</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>relationshipstore_memory</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>propertystore_memory</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>propertystore_strings_memory</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>propertystore_arrays_memory</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>cache_type</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>cache_memory_ratio</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>node_cache_array_fraction</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>relationship_cache_array_fraction</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>node_cache_size</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+<li><code>relationship_cache_size</code>* -- See Neo4j documentation.
+<strong>Default:</strong> <em>Neo4j default value</em></li>
+</ul>
+
+<p>* - see Max DeMarzi&#39;s Neo4j blog entry titled <a href="http://maxdemarzi.com/2013/11/25/scaling-up/">Scaling-Up</a></p>
+
+<h6>Authentication Attributes</h6>
+
+<ul>
+<li><code>auth_ensure</code>** -- Turns on/off authentication. Possibles: <em>present</em>, <em>absent</em>.
+<strong>Default:</strong> <em>absent</em></li>
+<li><code>auth_admin_user</code> -- Admin user name. Must be specified when using authentication.
+<strong>Default:</strong> <em>undef</em></li>
+<li><code>auth_admin_password</code> -- Admin password. Must be specified when using authentication.
+<strong>Default:</strong> <em>undef</em></li>
+<li><code>auth_users</code> -- Hash of users, passwords, and roles that can access Neo4j when using authentication.
+<strong>Default:</strong> <em>undef</em></li>
+</ul>
+
+<p>Sample Input:</p>
+
+<pre class="code puppet"><code class="puppet">  $auth_users = {
+    username1 =&gt; {
+      ensure     =&gt; present,   #optional, defaults to present
+      password   =&gt; &#39;mypass&#39;,
+      readWrite  =&gt; true,      #optional, defaults to true
+    },
+    username2 =&gt; {
+      password   =&gt; &#39;mypass&#39;,
+    },
+    username3 =&gt; {
+      ensure     =&gt; absent,
+      password   =&gt; &#39;&#39;,        #you must specify this when removing the user
+    },
+  }
+</code></pre>
+
+<h6>New Relic Parameters</h6>
+
+<ul>
+<li><code>newrelic_jar_path</code> -- Specifies the full path to the newrelic java agent jar file.
+<strong>Default:</strong> <em>undef</em></li>
+</ul>
+
+<h6>HA Parameters</h6>
+
+<p>These parameters configure the <a href="http://docs.neo4j.org/chunked/stable/ha-configuration.html">Neo4j HA options</a>.</p>
+
+<ul>
+<li><code>ha_ensure</code> -- Turns on/off ha features. Possibles: <em>present</em>, <em>absent</em>.
+<strong>Default:</strong> <em>absent</em></li>
+<li><code>ha_server_id</code> -- Required. Unique server id in cluster. Must be an integer.
+<strong>Default:</strong> <em>undef</em></li>
+<li><code>ha_initial_hosts</code> -- Required. Other hosts in the cluster.
+<strong>Default:</strong> <em>undef</em></li>
+</ul>
+
+<pre class="code puppet"><code class="puppet">  $ha_initial_hosts = &quot;${::ipaddress}:5001,other_ip:5001,another_ip:5001&quot;
+</code></pre>
+
+<pre class="code puppet"><code class="puppet">  $ha_initial_hosts = &quot;${::fqdn}:5001,host1.domain:5001,host2.domain:5001&quot;
+</code></pre>
+
+<ul>
+<li><code>ha_cluster_port</code> -- Port to listen to cluster heartbeats and management communications.
+<strong>Default:</strong> <em>5001</em></li>
+<li><code>ha_data_port</code> -- Port to send/receive cluster data on.
+<strong>Default:</strong> <em>6001</em></li>
+<li><code>ha_pull_interval</code> -- Pull interval from master. Specified in seconds.
+<strong>Default:</strong> <em>Neo4j default</em></li>
+<li><code>ha_tx_push_factor</code> -- Push factor to X slave servers. Specified as an integer.
+<strong>Default:</strong> <em>Neo4j default</em></li>
+<li><code>ha_tx_push_strategy</code> -- Push strategy to slave servers.
+<strong>Default:</strong> <em>Neo4j default</em></li>
+<li><code>ha_allow_init_cluster</code> -- Allow server to initialize a cluster if it cannot contact other hosts.
+<strong>Default:</strong> <em>Neo4j default</em></li>
+<li><code>ha_slave_only</code> -- Server can only be a slave in the cluster.
+<strong>Default:</strong> <em>Neo4j default</em></li>
+</ul>
+
+<h6>Logging Parameters</h6>
+
+<ul>
+<li><code>keep_logical_logs</code> -- Specifies the <a href="http://docs.neo4j.org/chunked/stable/configuration-logical-logs.html">logical logs property</a>.
+<strong>Default:</strong> <em>&#39;7 days&#39;</em></li>
+</ul>
+
+<h2>Development</h2>
+
+<h3>Running tests</h3>
+
+<p>This project contains tests for both rspec-puppet and test kitchen to verify functionality. For detailed information on using these tools, please see their respective documentation.</p>
+
+<h4>Testing quickstart:</h4>
+
+<pre class="code ruby"><code class="ruby">gem install bundler
+bundle install
+bundle exec rake {validate,lint,spec,strings:generate,guard}
+bundle exec kitchen {list,converge,verify,test}
+</code></pre>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu Feb 16 16:23:43 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.8 (ruby-2.3.1).
+</div>
+
+    </div>
+  </body>
+</html>
