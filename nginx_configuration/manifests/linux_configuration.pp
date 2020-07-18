@@ -5,17 +5,13 @@
 # @example
 #   include nginx_configuration::linux_configuration
 class nginx_configuration::linux_configuration{
-    exec { 'create xfs filesystem':
-      path    => '/usr/sbin/',
-      command => "sudo mkfs -t xfs /dev/nvme1n1"
-    }
 
-    #Create mount location and add a record in /etc/fstab
-    $hash      = loadjson("/etc/puppetlabs/code/environment/production/modules/nginx_configuration/files/mount.json")
-    $id        = $hash['filesystem_id']
-    $mounts    = $hash['mount_points']
+  #Create mount location and add a record in /etc/fstab
+  $hash      = loadjson("/etc/puppetlabs/code/environment/production/modules/nginx_configuration/files/mount.json")
+  $id        = $hash['filesystem_id']
+  $mounts    = $hash['mount_points']
 
-    $id.each |$index, $value|{
+  $id.each |$index, $value|{
     $filesystem_id = $id[$index]
     $mount_loc     = $mounts[$index]
 
