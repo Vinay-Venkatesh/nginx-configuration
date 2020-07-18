@@ -1,0 +1,4 @@
+{
+  "filesystem_id": ["/dev/nvme1n1"],
+  "mount_points": ["/ebs"]
+}
