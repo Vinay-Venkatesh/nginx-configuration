@@ -36,6 +36,6 @@ class nginx_configuration::linux_configuration{
   #Copy custom index.html file to ebs volume
   exec{'copy index.html':
     path    => '/usr/bin',
-    command => 'cp /etc/puppetlabs/code/environment/production/modules/nginx_configuration/files/index.html /ebs'
+    command => 'cp /etc/puppetlabs/code/environment/production/modules/nginx_configuration/files/index.html /webpage'
   }
 }
