@@ -1,9 +1,9 @@
-# @summary A short summary of the purpose of this class
+# @summary Configures nginx on linux server
 #
-# A description of what this class does
-#
-# @example
-#   include nginx_configuration::nginx
+# Install nginx
+# modify the configuration of nginx in /etc/nginx
+# Start it as a service and enable on boot.
+
 
 class nginx_configuration::nginx {
     exec{'install nginx':

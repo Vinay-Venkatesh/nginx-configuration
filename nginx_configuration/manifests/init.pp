@@ -1,9 +1,7 @@
-# @summary A short summary of the purpose of this class
+# @summary Start of the configuration
 #
-# A description of what this class does
-#
-# @example
-#   include nginx_configuration
+# Contains linux configuration and nginx manifests initializtion
+
 class nginx_configuration {
   contain nginx_configuration::linux_configuration
   contain nginx_configuration::nginx

@@ -1,9 +1,7 @@
-# @summary A short summary of the purpose of this class
+# @summary This class is used to configure custom index.html.
 #
-# A description of what this class does
+# Copies index.html to specific location on the server.
 #
-# @example
-#   include nginx_configuration::linux_configuration
 class nginx_configuration::linux_configuration{
 
   #Create mount location and add a record in /etc/fstab
