@@ -16,6 +16,10 @@ class nginx_configuration::nginx {
       command => 'cp /etc/puppetlabs/code/environment/production/modules/nginx_configuration/files/nginx.conf /etc/nginx/'
     }
 
+    file{'/etc/nginx/nginx.conf.default':
+      ensure => 'absent'
+    }
+
     exec{'enable nginx':
       path => '/usr/bin',
       command => 'systemctl enable nginx.service'
